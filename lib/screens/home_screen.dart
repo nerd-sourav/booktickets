@@ -1,5 +1,8 @@
+import 'package:booktickets/screens/hotel_screen.dart';
 import 'package:booktickets/screens/ticket_view.dart';
+import 'package:booktickets/utils/app_info_list.dart';
 import 'package:booktickets/utils/styles.dart';
+import 'package:booktickets/utils/ticket_info_list.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -64,7 +67,6 @@ class HomeScreen extends StatelessWidget {
                       style: Styles.headLineStyle2,
                     ),
                     InkWell(
-                      onTap: () => print("View All tapped"),
                       child: Text(
                         "View all",
                         style: Styles.textStyle
@@ -76,17 +78,46 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          Gap(10),
-          Container(
-            height: 200,
-            child: ListView(scrollDirection: Axis.horizontal, children: [
-              TicketView(),
-              TicketView(),
-              TicketView(),
-              TicketView()
-            ]),
+          Gap(15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: ticketList
+                  .map((singleTicketData) =>
+                      TicketView(ticketData: singleTicketData))
+                  .toList(),
+            ),
           ),
-          // TicketView()
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Hotels",
+                  style: Styles.headLineStyle2,
+                ),
+                InkWell(
+                  onTap: () => print("View All tapped"),
+                  child: Text(
+                    "View all",
+                    style:
+                        Styles.textStyle.copyWith(color: Styles.primaryColor),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Gap(15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              //this acts as a for loop in a children
+              children: hotelList
+                  .map((singleHotel) => HotelScreen(hotel: singleHotel))
+                  .toList(),
+            ),
+          ), // TicketView()
         ],
       ),
     );
