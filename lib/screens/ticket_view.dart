@@ -103,7 +103,7 @@ class TicketView extends StatelessWidget {
                           style: Styles.headLineStyle3.copyWith(
                               fontWeight: FontWeight.w500,
                               color: Colors.white)),
-                      Text('${ticketData['to']['code']}',
+                      Text('${ticketData['to']['name']}',
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white)),
                     ],

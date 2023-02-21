@@ -33,6 +33,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   fluentui_icons: ^1.0.0
   gap: ^2.0.0
+  get: ^4.6.5
+  rounded_tabbar_widget: ^0.0.2
+  salomon_bottom_bar: ^3.3.1
 
 dev_dependencies:
   flutter_test:
